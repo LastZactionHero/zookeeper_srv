@@ -28,7 +28,6 @@ func latestPhotoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func postPhotoHandler(w http.ResponseWriter, r *http.Request) {
-  fmt.Println("postPhotoHandler")
   err := r.ParseMultipartForm(100000)
 
   if err != nil {
@@ -73,10 +72,8 @@ func latestFile() os.FileInfo {
 
 
 func main() {
-  fmt.Println("Hello Zookeeper")
-
   http.HandleFunc("/latest_photo", latestPhotoHandler)
-  http.HandleFunc("/post_photox", postPhotoHandler)
+  http.HandleFunc("/post_photo", postPhotoHandler)
 
   http.ListenAndServe(":8080", nil)
 }
